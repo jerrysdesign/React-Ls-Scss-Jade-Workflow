@@ -106,6 +106,6 @@ finaly for concat all files
 This WorkFlow has an MIT License, see the LICENSE.txt for more information.
 
 ********************************************************
-  - follow me : <a href="https:twitter.com/thonymg">@ThonyMg</a>
-  - follow us : <a href="https:twitter.com/anosibe">@anosibe</a>
+  - follow me on twitter : https:twitter.com/thonymg
+  - follow us on twitter : https:twitter.com/anosibe
 
