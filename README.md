@@ -100,3 +100,12 @@ finaly for concat all files
 ```sh
   gulp concat
 ```
+
+### License
+
+This WorkFlow has an MIT License, see the LICENSE.txt for more information.
+
+********************************************************
+follow me : @thonyMg
+follow us : @anosibe
+
