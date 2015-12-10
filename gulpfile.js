@@ -89,23 +89,6 @@ gulp.task('change', ['lsJSX'] , function() {
       .pipe(gulp.dest(jsxOut))
 });
 
-/**
- * Compile les fichiers Jade 
- *
- */
-
-// gulp.task('jade', function () {
-//   return gulp.src(jadeSources)
-//     .pipe(plumber())
-//     .pipe(jadeInheritance({basedir: 'src/jade/'}))
-//     .pipe(gulpJade({
-//       pretty: true
-//     }))
-//     .pipe(gulp.dest(jadeOut))
-//     .pipe(connect.reload())
-// });
-
-
 gulp.task('jade', function() {
   return gulp.src(jadeSources)
     .pipe(changed(jadeOut, {extension: '.html'}))
@@ -179,17 +162,6 @@ gulp.task('concat', function() {
 });
 
 
-
-gulp.task('html', function(){
-  return gulp.src(htmlSources)
-  .pipe(connect.reload())
-});
-
-gulp.task('json', function(){
-  return gulp.src(jsonSources)
-  .pipe(connect.reload())
-});
-
 gulp.task('watch', function(){
   gulp.watch(lsSources , ['lsJS']);
   gulp.watch(lsJsxSources , ['lsJSX']);
@@ -197,8 +169,6 @@ gulp.task('watch', function(){
   gulp.watch(jadeSources, ['jade']);
   gulp.watch(jsOut, ['reactify']);
   gulp.watch(sassSources, ['compass']);
-  gulp.watch(htmlSources, ['html']);
-  gulp.watch(jsonSources, ['json']);
 });
 
-gulp.task('default', [ 'change', 'html', 'jade', 'json', 'lsJS', 'lsJSX', 'compass', 'connect' , 'reactify',  'watch']);
+gulp.task('default', [ 'change', 'jade', 'lsJS', 'lsJSX', 'compass', 'connect' , 'reactify',  'watch']);
