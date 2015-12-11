@@ -1,13 +1,9 @@
-var MyComponent;
-MyComponent = React.createClass({
-  propTypes: {
-    children: React.PropTypes.element.isRequired
-  },
+var Button;
+Button = React.createClass({
   render: function(){
     return (
-      <div>
-        {this.props.children}
-      </div>
+    	<button>Go</button>
     );
   }
 });
+module.exports = Button;

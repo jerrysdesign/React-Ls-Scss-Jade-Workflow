@@ -20,8 +20,8 @@ var gulp = require('gulp'),
 /**
   Liens vers les fichiers sources (en entrées);
 */
-var connectDevRoot = 'builds/development/' ;
-var connectProdRoot = 'builds/production/';
+var connectDevRoot = 'builds/dev/' ;
+var connectProdRoot = 'builds/prod/';
 
 var lsSources = ['src/livescript/toJS/**/*.ls'],
     lsJsxSources = ['src/livescript/toJSX/**/*.ls'],
@@ -29,7 +29,7 @@ var lsSources = ['src/livescript/toJS/**/*.ls'],
     jadeSources = ['src/jade/**/*.jade'],
     htmlSources = ['builds/dev/**/*.html'],
     jsonSources = ['builds/dev/js/**/*.json'],
-    
+
     concatJsSources = ['builds/dev/js/scripts/**/*.js' ];
 
 /**
@@ -59,7 +59,7 @@ var compassConfig = {
 };
 
 /**
- * Compile les fichier Livescript en JS 
+ * Compile les fichier Livescript en JS
  *
  */
 
@@ -80,7 +80,7 @@ gulp.task('lsJS', function(){
 
 
 /**
- * Change les extensions des fichier JS en JSX 
+ * Change les extensions des fichier JS en JSX
  *
  */
 gulp.task('change', ['lsJSX'] , function() {
@@ -107,7 +107,7 @@ gulp.task('jade', function() {
     .pipe(connect.reload())
 });
 /**
- * Compile les fichiers SCSS en CSS 
+ * Compile les fichiers SCSS en CSS
  *
  */
 
@@ -120,7 +120,7 @@ gulp.task('compass', function () {
 });
 
 /**
- * Lance la commande Conect et livereload 
+ * Lance la commande Conect et livereload
  *
  */
 gulp.task('connect', function (){
@@ -132,7 +132,7 @@ gulp.task('connect', function (){
 
 /**
  * Browserify + reactify -> changer en build pour pouvoir débeuger plus faclement
- * 
+ *
  *
  */
 gulp.task('reactify', function(){
@@ -147,7 +147,7 @@ gulp.task('reactify', function(){
 });
 
 /**
- * Recharge la page s'il y a des modifications 
+ * Recharge la page s'il y a des modifications
  *
  */
 
@@ -167,7 +167,7 @@ gulp.task('watch', function(){
   gulp.watch(lsJsxSources , ['lsJSX']);
   gulp.watch(lsJsxOut + '**/*.js', ['change']);
   gulp.watch(jadeSources, ['jade']);
-  gulp.watch(jsOut, ['reactify']);
+  gulp.watch(jsxOut + '**/*.*', ['reactify']);
   gulp.watch(sassSources, ['compass']);
 });
 

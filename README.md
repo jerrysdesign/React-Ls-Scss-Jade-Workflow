@@ -27,7 +27,7 @@ MyComponent = React .create-class do
         {this.props.children}
       </div>
     )``
-
+module.exports = MyComponent
 ```
 
 ##### is translated to JSX
@@ -46,6 +46,7 @@ MyComponent = React.createClass({
     );
   }
 });
+module.exports = MyComponent;
 ```
 
 ##### and then compiled to JS
@@ -64,7 +65,24 @@ MyComponent = React.createClass({displayName: "MyComponent",
     );
   }
 });
+
+module.exports = MyComponent;
 ```
+##### The Main.js file
+
+```js
+React = require('react')
+ReactDOM = require('react-dom')
+
+MyComponent = require('./react.jsx')
+MyComponent2 = require('./react2.jsx')
+
+
+ReactDOM.render(<Button />, document.getElementById("content"))
+
+```
+
+
 ### Folder structure
 
 ```
