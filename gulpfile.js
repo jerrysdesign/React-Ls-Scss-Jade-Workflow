@@ -137,7 +137,7 @@ gulp.task('connect', function (){
  */
 gulp.task('reactify', function(){
   gulp.src(jsxOut + 'main.js', { read: false })
-    // .pipe(plumber())
+    .pipe(plumber())
     .pipe(browserify({
       transform: ['reactify'],
       extensions: ['.jsx']
